@@ -1,0 +1,10 @@
+<h1>Show Page</h1>
+
+  <p><%=  @portfolio_items.title %></p>
+  <p><%=  @portfolio_items.subtitle %></p>
+  <p><%=  @portfolio_items.body %></p>
+  <%= image_tag  @portfolio_items.thumb_image unless  @portfolio_items.thumb_image.nil? %>
+
+<%= link_to "Edit Item", edit_portfolio_path(@portfolio_items.id) %>
+<%= button_to 'Delete Portfolio Item',@portfolio_item, method: :delete %>
+
