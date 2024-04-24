@@ -6,7 +6,7 @@
   <% @blogs.each do |blog| %>
     <%= render blog %>
     <p>
-      <%= link_to "Show this blog", blog %>
+      <%= link_to "Show this blog", blog_show_path(blog) %>
     </p>
   <% end %>
 </div>
