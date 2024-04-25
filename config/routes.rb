@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   #routes for portfolios
   resources :portfolios, except: [:show]
    get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
-
+   get 'cricket-tips-portfolios', to: 'portfolios#crickettipsshow'
   #get 'pages/home'
   root to: 'pages#home'
   get 'abouts', to: 'pages#about'

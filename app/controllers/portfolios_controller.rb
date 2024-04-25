@@ -2,6 +2,14 @@ class PortfoliosController < ApplicationController
   def index
     @portfolio_items = Portfolio.all
   end
+
+  def crickettipsshow
+    @cricket_tips = Portfolio.all
+    respond_to do |format|
+      format.html # Render crickettipsshow.html.erb by default
+    end
+  end
+
   def new
     @portfolio_items = Portfolio.new
   end
