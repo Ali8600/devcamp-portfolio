@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   end
 
   def crickettipsshow
-    @cricket_tips = Portfolio.all
+    @cricket_tips = Portfolio.cricketTips
     respond_to do |format|
       format.html # Render crickettipsshow.html.erb by default
     end
@@ -12,6 +12,8 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_items = Portfolio.new
+    #hardcoded version of running nested attributes
+    # 3.time {@portfolio_items.tecnologies.build}
   end
   def show
     @portfolio_items = Portfolio.find(params[:id])
@@ -21,7 +23,7 @@ class PortfoliosController < ApplicationController
 
   end
   def create
-    @portfolio_items = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body))
+    @portfolio_items = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle)) #, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @portfolio_items.save
