@@ -1,6 +1,5 @@
 class Skill < ApplicationRecord
   includes Placeholder
-
   after_initialize :set_defaults
 
   def set_defaults

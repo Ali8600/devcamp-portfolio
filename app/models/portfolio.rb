@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
   includes Placeholder
+  has_many :technologies
   validates_presence_of :title, :subtitle, :body, :thumb_image
 
   # def self.crickettips
