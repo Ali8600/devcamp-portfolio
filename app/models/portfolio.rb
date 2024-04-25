@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
-  validates_presence_of :title, :subtitle, :body
+  includes Placeholder
+  validates_presence_of :title, :subtitle, :body, :thumb_image
 
   # def self.crickettips
   #   where(subtitle: "Cricket Tips")
@@ -12,8 +13,8 @@ class Portfolio < ApplicationRecord
   after_initialize  :set_defaults
 
   def set_defaults
-    self.thumb_image ||= "https://www.worldometers.info//img/flags/small/tn_pk-flag.gif"
-    self.main_image ||= "https://www.worldometers.info//img/flags/small/tn_pk-flag.gif"
+    self.thumb_image ||= Placeholder.image_generator(height:'200',width:'100')
+    self.main_image ||= Placeholder.image_generator(height:'300',width:'200')
   end
 
   # '||=' operator is a short-cut to check if the value is nill, then replace, or else not.
