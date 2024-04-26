@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  # Root route
-  root to: 'blogs#index', path: '', path_names: {sign_in: 'login', sign_out: 'logout'}
-  # User authentication routes
-  devise_for :users
 
+  # User authentication routes
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   # Routes for portfolios
   resources :portfolios, except: [:show]
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
@@ -19,6 +17,8 @@ Rails.application.routes.draw do
   get 'home/about/aboutme', to: 'home#about'
   get 'home/contact'
 
+  # Root route
+  root to: 'pages#about'
   # Routes for blogs
   get 'blogs', to: 'blogs#index'
   get 'blog/:id', to: 'blogs#show', as: 'blog_show'

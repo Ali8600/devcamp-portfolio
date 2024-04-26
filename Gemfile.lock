@@ -223,7 +223,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
-  devise (~> 4.9)
+  devise (~> 4.9.4)
   friendly_id (~> 5.1.0)
   importmap-rails
   jbuilder
